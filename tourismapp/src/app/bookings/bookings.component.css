@@ -1,0 +1,129 @@
+.request{
+    font-size: 40px !important;
+    padding-bottom: 32px;
+    margin-left:200px;
+    --maxWidth: 1120px;
+}
+
+.infos{
+    justify-content: center;
+    margin:0px;
+    margin-bottom: 100px;
+  }
+  
+  *{
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.6em;
+   }
+  
+
+   .jumbotron{
+  
+
+   background-color:#e0e0d1;
+    image-rendering: -webkit-optimize-contrast;
+    margin-bottom: 0px;
+    border-bottom: gray;
+    padding-top:200px;
+  }
+
+.info{
+    margin-left:200px;
+    margin-right: 20px;
+    width: 50%;
+    display:block;
+     float:left;
+    
+}
+
+.trip{
+    width: 30% !important;
+    display:block;
+    float:left;
+    padding: 24px !important;
+    border: 1px solid rgb(221, 221, 221) !important;
+    border-radius: 12px !important;
+    height: 100%;
+ 
+}
+
+h2{
+    font-size: 22px !important; line-height: 26px !important;padding-bottom: 24px;
+    font-weight: bold; 
+}
+
+.card{
+    border: 1px solid rgb(221, 221, 221) !important;
+    border-radius: 8px !important;
+    color: rgb(72, 72, 72) !important;
+    padding: 16px 40px 16px 16px !important;
+    width: 100%;
+    font-size: 16px !important;
+    line-height: 20px !important;
+    padding-bottom: 24px; 
+    margin-bottom:20px ;
+}
+
+.credit-card-form{
+    width: 100% !important;
+    color: #565a5c;
+
+    background-color: rgb(255, 255, 255) !important;
+    position: relative !important;
+
+    padding-bottom: 24px; 
+    margin-bottom: 50px;
+}
+
+.card-data{
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+    border: 1px solid rgb(221, 221, 221) !important;
+    width: 100% !important;
+    color: #565a5c;
+    padding: 16px 40px 16px 16px !important;
+}
+
+.expiration{
+    display:block;
+    float:left;
+    border-bottom-left-radius: 8px;
+    border: 1px solid rgb(221, 221, 221) !important;
+    width: 50% !important;
+    color: #565a5c;
+    padding: 16px 40px 16px 16px !important;
+
+}
+
+.CVV{
+    display:block;
+    float:right;
+    border-bottom-right-radius: 8px;
+    border: 1px solid rgb(221, 221, 221) !important;
+    width: 50% !important;
+    color: #565a5c;
+    padding: 16px 40px 16px 16px !important;
+}
+
+.post-code-form{
+    width: 100% !important;
+    
+}
+
+.postcode{
+    display:block;
+    border-bottom-right-radius: 8px;
+    border: 1px solid rgb(221, 221, 221) !important;
+    width: 50% !important;
+    color: #565a5c;
+    padding: 16px 40px 16px 16px !important;
+    width: 100% !important;
+}
+
+.explanation{
+    margin-bottom: 50px;
+}
+
+.fail{
+    color:red;
+}

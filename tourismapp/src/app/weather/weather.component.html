@@ -1,0 +1,36 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+<link src="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"  crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"  crossorigin="anonymous"></script>
+<head>
+    <meta name="referrer" content="origin">
+</head>
+<body>
+    <div class="jumbotron " >
+   
+
+        <app-top-bar></app-top-bar>
+        <div id='container'>
+            <div *ngIf='!loc' id='search'>
+                <h1>Enter location to find weather info.</h1>
+            </div>
+            <mat-tab-group *ngIf='loc'>
+                <mat-tab label="Current Weather">
+                    <app-current-weather></app-current-weather>
+                </mat-tab>
+              
+                <mat-tab label="Forecast">
+                    <app-forecast></app-forecast>
+                </mat-tab>
+                  <!---
+                <mat-tab label="UV Index">
+                    <app-uv></app-uv>
+                </mat-tab>-->
+            </mat-tab-group>
+        </div>
+
+
+    </div>
+
+</body>

@@ -1,0 +1,101 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+<link src="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"  crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"  crossorigin="anonymous"></script>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<head>
+    <meta name="referrer" content="origin">
+</head>
+<body>
+    <div class="jumbotron " >
+       <div class="container">
+        <h1 class="mat-card"style=" background-color: white; border:none;  margin:20px" mdbWavesEffect   >Convert</h1>
+
+  
+        <div class="value">
+            <label for="value">Value:</label><span style="color: red !important; display: inline; float: none;">*</span><br>   
+            <input [(ngModel)]="value" type="text" name="value"  class="form-control input-amount" placeholder="0">
+        </div>
+        <div class="wrapper">
+            <div class="first">
+                <label for="currency">From:</label><span style="color: red !important; display: inline; float: none;">*</span>    
+                <select  [(ngModel)]="currency_from" name="currency_from"  id="currency_from"class="form-control" style="width: min-content; height: fit-content;">
+                    <option value="EUR">EUR</option>
+                    <option value="USD">USD</option>
+                    <option value="LEU">GBP</option>
+                </select>
+            </div>
+            <div class="arrow">⇆</div>
+            <div class="second">
+                <label for="currency">To:</label><span style="color: red !important; display: inline; float: none;">*</span>    
+                <select [(ngModel)]="currency_to" name="currency_to"  id="currency_to" class="form-control" style="width: min-content;  height: fit-content;">
+                    <option value="EUR">EUR</option>
+                    <option value="USD">USD</option>
+                    <option value="LEU">GBP</option>
+                </select>
+            </div>
+        </div>
+        <button class="convert"  (click)="convert()">Convert</button>
+        <div class="result">
+            <label for="result">Result:</label><span style="color: red !important; display: inline; float: none;">*</span><br>   
+            <input class="input-result" placeholder="0" value="{{result}}">
+        </div>
+        <table class="value-table">
+            <tbody>
+            <tr>
+                <td>Symbol</td> 
+                <td>Currency</td>
+                <td>Buy</td>
+                <td>Sell</td>
+            </tr>
+            <tr>
+                <td><img src="https://i.ibb.co/dpkbYfW/EUR.gif">EUR----<img src="https://i.ibb.co/R4yVtKf/USD.gif">USD</td>
+                <td>American dollar  - Euro</td>
+                <td>1.1459219</td>
+                <td>0.87273005</td>
+            </tr>
+            <tr>
+                <td><img src="https://i.ibb.co/dpkbYfW/EUR.gif"> EUR----<img src="https://i.ibb.co/x5Lw70L/GBP.gif"> GBP</td>
+                <td>Euro - Pound</td>
+                <td>0.84661936</td>
+                <td>1.1811684</td>
+            </tr>
+            <tr>
+                <td><img src="https://i.ibb.co/R4yVtKf/USD.gif">USD----<img src="https://i.ibb.co/x5Lw70L/GBP.gif"> GBP</td>
+                <td>Pound - American dollar</td>
+                <td>0.73879025</td>
+                <td>1.3535642</td>
+            </tr>
+            </tbody>
+            </table>
+        <h1 class="mat-card" style=" background-color: white; border:none;  margin:20px" mdbWavesEffect  >Add expense/income</h1>
+        <div class="wrapper">
+            <div class="first2">
+                <div class="number"  >Value:</div>
+                <input class="number"[(ngModel)]="value_new" type="number" name="value_new"  value="1"  step="10" placeholder="0"/>
+            </div>
+            <div class="second2">
+                <label for="category" style="margin-bottom: 0px;padding: 10px;">Category</label><span style="color: red !important; display: inline; float: none; ">*</span>    
+                <select id="category" name="category" class="form-control" ng-repeat="category in categories"  ng-model="chosen"style="width: min-content;  height: fit-content; padding: 10px;">
+                    <option  *ngFor="let category of categories | async" [ngValue]="category.category" >{{category.category}}</option>
+                </select>
+
+            </div>
+        </div>
+        
+        <div class="third">
+            <label for="type" style="margin-bottom: 0px;">Type of money:</label>
+            <select  [(ngModel)]="type" name="type"  class="form-control type" id="type" style="width: min-content; height: fit-content;" >
+                <option value="Select type " disabled selected>Select type </option>
+                <option value="Income">Income</option>
+                <option value="Expense">Expense</option>
+              </select>
+              <button class="add" (click)="update_amount()" >Add</button>
+            <div class="amount">Amount : {{wallet.amount}}</div>
+        </div>
+    </div>
+    </div>
+</body>

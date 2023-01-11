@@ -1,0 +1,124 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+<link src="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"  crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"  crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600,700" rel="stylesheet">
+
+  <head>
+    <meta name="referrer" content="origin">
+ 
+</head>
+
+<body>
+<!-- Toolbar -->
+<div class="jumbotron" >
+  <div class="container">
+    <div class="w3-container text-center"   >
+        <!-- Highlight Card -->
+ 
+        <section class="search-sec">
+          <div class="container">
+              <form action="#" method="post" novalidate="novalidate">
+                  <div class="row">
+                      <div class="col-lg-12">
+                          <div class="row">
+                              <div  class="col-lg-3 col-md-3 col-sm-12 p-0 form-group">
+                                  <input [(ngModel)]="city_search" type="text" name="city_search"  class="form-control search-slt" placeholder="Where">
+                              </div>
+                              <div class="col-lg-3 col-md-3 col-sm-12 p-0 form-group">
+                                  <input  [(ngModel)]="nr_of_persons" name="nr_of_persons"   type="number" class="form-control search-slt" placeholder="Guests">
+                              </div>
+                              <div class="col-lg-3 col-md-3 col-sm-12 p-0 form-group">
+                                  <select  [(ngModel)]="type_of_vacation" name="type_of_vacation"  class="form-control search-slt" id="exampleFormControlSelect1" >
+                                    <option value="Select type of vacation" disabled selected>Select type of vacation </option>
+                                    <option value="City break">City break</option>
+                                    <option value="Summer vacation">Summer vacation</option>
+                                    <option value="Winter vacation">Winter vacation</option>
+                                    <option value="Business vacation">Business vacation</option>
+                                    <option value="Honeymoon">Honeymoon</option>
+                                    <option value="Cruise">Cruise</option>
+                                  </select>
+                              </div>
+                              <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+                                  <button  type="button" style="background-color: #4eb478; border-color: seagreen; color:white; margin:0px" class="btn  wrn-btn " (click)="go(city_search,nr_of_persons,type_of_vacation)" >Search</button>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </form>
+          </div>
+      </section>
+      <button class="button_find "  (click)="find()" >Find a vacation</button>
+    </div>
+  </div>
+</div>
+<div  style="background-color: white;">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 py-3">
+        <!--
+        <ngb-carousel > 
+          <ng-template ngbSlide *ngFor="let holiday of holidays | async">
+            <img [src]="holiday.photoId" alt="Random slide">
+            <div class="carousel-caption">
+              <h3><a style="color: black; font-size: 30px;" href="/single-holiday/{{holiday.id}}"  class="post-title">{{holiday.city}} {{holiday.state}} {{holiday.country}}</a></h3>
+              <p [innerHTML]="holiday.content"></p>
+            </div>
+         
+          </ng-template>
+        </ngb-carousel>-->
+      </div>
+    </div>
+  </div>
+</div>
+<div class="jumbotron3" style="background-color: white;">
+  <div class="container">
+      <div class="row">
+        <div class="span4">
+          <div class="features">
+            <div class="icon">
+              <i class="icon-bg-light icon-circled icon-code icon-5x active"></i>
+            </div>
+            <div class="features_content">
+              <h3>Check graphics</h3>
+              <p class="left">
+                Check what are the most wanted destinations based on our filters and feel free to inspire yourself for your next vacation.
+              </p>
+              <a href="#" class="btn btn-color btn-rounded"  href="/line-chart"><i class="icon-angle-right"></i> Read more</a>
+            </div>
+          </div>
+        </div>
+        <div class="span4">
+          <div class="features">
+            <div class="icon">
+              <i class="icon-bg-light icon-circled icon-bug icon-5x"></i>
+            </div>
+            <div class="features_content">
+              <h3> Weather</h3>
+              <p class="left">
+                Do you know what clothes to bring with you on trip? Check the weather to chose your outfits perfectly and be prepared for changes.
+              </p>
+              <a href="#" class="btn btn-color btn-rounded" href="/weather"><i class="icon-angle-right"></i> Read more</a>
+            </div>
+          </div>
+        </div>
+        <div class="span4">
+          <div class="features">
+            <div class="icon">
+              <i class="icon-bg-light icon-circled icon-android icon-5x"></i>
+            </div>
+            <div class="features_content">
+              <h3>Contact us</h3>
+              <p class="left">
+                How can we help you? Please get in touch and our expert support team will answer all your questions.
+              </p>
+              <a href="#" class="btn btn-color btn-rounded" href="/contact" ><i class="icon-angle-right"></i> Read more</a>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+</body>
+

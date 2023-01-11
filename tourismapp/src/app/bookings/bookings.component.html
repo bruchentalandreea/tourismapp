@@ -1,0 +1,89 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+<link src="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"  crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"  crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600,700" rel="stylesheet">
+
+  <head>
+    <meta name="referrer" content="origin">
+ 
+</head>
+
+<body>
+
+<div class="jumbotron" style="background-color: white;">
+  <div class="infos">
+    <div class="request"> Request to book</div> 
+    <div class="info"> 
+        <h2>Your trip</h2>
+        <div style="font-weight: bold; ">Dates</div>
+        <br>
+        <div style="margin-bottom: 10px;"  >{{bookings.check_in_date}} to {{bookings.check_out_date}}</div>
+        <div style="font-weight: bold; ">Guests</div>
+        <br>
+        <div>{{bookings.nr_of_persons}}</div>
+    <hr/>
+    <h2>Pay with</h2>
+    <select class="card" [(ngModel)]="type" name="type" name="payment_method" id="payment_method" >
+          <option value="" disabled selected>Select your option of payment</option>
+          <option value="Credit card">Credit card</option>
+          <option value="Cash">Cash</option>
+          
+    </select>
+    <button  type="button" style="background-color: #4eb478; border-color: seagreen; color:rgb(87, 86, 86); margin:10px" class="btn  wrn-btn " (click)="pay(type)" >Chose payment option</button>
+    <form  class="credit-card-form" *ngIf="card_show">
+            <input class="card-data"   [(ngModel)]="creditCard" name="creditCard" style="width: fit-content;" placeholder="4XXX XXXX XXXX XXXXX" >
+            <input class="expiration"  [(ngModel)]="expirationDate"  name="expirationDate"   placeholder="MM / YYYY"   >
+            <input class="CVV"    [(ngModel)]="cvv" placeholder="CVV"  name="cvv"   autocomplete="off" >
+
+            <span class="fail" *ngIf="card_invalid">*Card number should have format 4XXX XXXX XXXX XXXXX</span> <br>
+            <span class="fail" *ngIf="expiration_date_invalid">*Exiration date should be MM / YYYY</span><br>
+            <span class="fail" *ngIf="cvv_invalid">*CVV should have maxmimum 3 digits</span><br>
+            <button style="margin-top: 30px;" type="submit" class="read-more btn btn-default" (click)=onSubmit()>Request to book</button>   
+    </form>
+    <br>
+    <button *ngIf="cash_button" style="margin-top: 30px;" type="submit" class="read-more btn btn-default" (click)=go()>Request to book</button>
+
+    <hr/>
+    <div>
+        <h2>Cancellation policy</h2>
+        <div class="explanation">
+            Cancel before 11:00 on 28 Jan and get a full refund for the nights that remain 24 hours after you cancel. 
+            <br>
+            Our Extenuating Circumstances policy does not cover travel disruptions caused by COVID-19. 
+        </div>
+    </div>
+
+    </div>
+
+    <div class="trip">
+        <div  >
+              <img src={{bookings.photoId}} style="width:100%">
+              <h4><a class="bookings-title">{{bookings.title}}</a></h4>
+              <div class="text-center">
+                <div class="location"><p type="text">{{bookings.country}} {{bookings.city }}</p></div>
+            </div>
+
+              <div >  <i class="fa fa-money"></i>Price: {{bookings.price}} EURO</div>  
+     
+              <!--
+              <p><button><div class="star-rating-container star-rating-animation" fxLayout="row" fxLayoutAlign="start center" >
+
+                  <div *ngFor="let star of stars" [ngClass]="[star.class]" (click)="selectStar(star.id,holiday.id,holiday.username)">
+                      <mat-icon>{{star.icon}}</mat-icon>
+                  </div>
+              
+              </div></button></p>-->
+    
+          </div>
+    </div>
+  </div>
+</div>
+<div class="jumbotron" style="background-color: white;">
+  <div class="container">
+    
+  </div>
+</div>
+</body>
+

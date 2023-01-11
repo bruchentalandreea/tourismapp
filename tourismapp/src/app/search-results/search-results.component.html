@@ -1,0 +1,104 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+<link src="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"  crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"  crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600,700" rel="stylesheet">
+
+  <head>
+    <meta name="referrer" content="origin">
+ 
+</head>
+
+<body>
+<!-- Toolbar -->
+<div class="jumbotron" >
+  <div class="container">
+    <div class="w3-container"   >
+        <!-- Highlight Card -->
+        <section class="search-sec">
+            <div class="container">
+                <form action="#" method="post" novalidate="novalidate">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="row">
+                                <div  class="col-lg-3 col-md-3 col-sm-12 p-0 form-group">
+                                    <input [(ngModel)]="city_search" type="text" name="city_search"  class="form-control search-slt" placeholder="Enter destination">
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-12 p-0 form-group">
+                                    <input  [(ngModel)]="nr_of_persons" name="nr_of_persons"   type="number" class="form-control search-slt" placeholder="Enter persons">
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-12 p-0 form-group">
+                                    <select  [(ngModel)]="type_of_vacation" name="type_of_vacation"  class="form-control search-slt" id="exampleFormControlSelect1" >
+                                      <option value="Select type of vacation">Select type of vacation </option>
+                                      <option value="City break">City break</option>
+                                      <option value="Summer vacation">Summer vacation</option>
+                                      <option value="Winter vacation">Winter vacation</option>
+                                      <option value="Business vacation">Business vacation</option>
+                                      <option value="Honeymoon">Honeymoon</option>
+                                      <option value="Cruise">Cruise</option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+                                    <button  type="button" style="background-color: #4eb478; border-color: seagreen;" class="btn btn-danger wrn-btn " (click)="go(city_search,nr_of_persons,type_of_vacation)" >Search</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </div>
+  </div>
+</div>
+
+<div class="jumbotron" style="background-color: white;">
+    <div class="container">
+        <div class="container" style="height: fit-content;">
+            <div  class="card-list" fxLayout="row wrap"   >
+                <div *ngIf="(posts | async)?.length > 0; else loading">
+                    <div  class="card" fxFlex="30%" *ngFor="let post of posts | async" style="margin:10px;" >
+                        <img src={{post.photoId}} alt="Cabana" style="width:100%">
+                        <h4><a href="/single-post/{{post.id}}"  class="post-title">{{post.title}}</a></h4>
+                        <div class="username-class">
+                        <i class="fa fa-user"></i>Autor: {{post.username}}
+                        </div>
+                        <p [innerHTML]="post.content"></p>
+                        <div style="  clear: both;
+                        display: inline-block;
+                        overflow: hidden;">
+                        <div>
+                            <div class="location">Tara: <p type="text">{{post.country }}</p></div>
+                            <div class="location">Judet: <p type="text" >{{post.state}}</p></div>
+                            <div class="location">Oras: <p type="text" >{{post.city}}</p></div>
+                        </div>
+                        <div>
+                            <div class="check"><i  class="fa fa-calendar"></i>Check-In: <p type="date">{{post.check_in_date }}</p></div>
+                            <div class="check"><i  class="fa fa-calendar"></i>Check-Out: <p type="date" >{{post.check_out_date}}</p></div>
+                        </div>
+                            <i class="fa fa-money"></i>Pret: {{post.price}} EURO
+                        </div>
+                        <p><button><div class="star-rating-container star-rating-animation" fxLayout="row" fxLayoutAlign="start center" >
+        
+                            <div *ngFor="let star of stars" [ngClass]="[star.class]" (click)="selectStar(star.id,post.id,post.username)">
+                                <mat-icon>{{star.icon}}</mat-icon>
+                            </div>
+                        
+                        </div></button></p>
+                    
+                        <div>
+                            <a type="button" href="/single-post/{{post.id}}" class="read-more btn btn-default">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <ng-template #loading>
+            <h3>No data found for your request</h3>
+            <loading-component></loading-component>
+        </ng-template>
+    </div>
+</div>
+</body>
+

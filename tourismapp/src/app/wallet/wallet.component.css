@@ -1,0 +1,208 @@
+
+*{
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 13px;
+  font-weight: bold;
+  line-height: 1.6em;
+ }
+
+
+.jumbotron{
+
+    padding-top: 150px;
+    background-color: white;
+  }
+
+  .wrapper {
+    overflow: hidden; /* will contain if #first is longer than #second */
+    margin-left:100px;
+    margin-top: 30px;
+}
+.first {
+    float:left; 
+}
+.second {
+  float:left;
+}
+.arrow{
+  float: left;
+  margin: 40px;
+
+}
+
+.amount{
+  margin-left: 100px;
+}
+
+.convert{
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  font-size: 18px;
+  margin-left: 100px;
+  border-radius: 10px;
+}
+
+.add{
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  font-size: 18px;
+  margin-top: 30px;
+  border-radius: 10px;
+}
+
+button:hover{
+  opacity: 0.7;
+}
+
+.result{
+  margin-left: 100px;
+  margin-top: 30px;
+}
+
+.mat-card{
+  background-color:#e0e0d1;
+  transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+  display: block;
+  position: relative;
+  border-radius: 4px;
+  font-size: 20px;
+  padding: 16px;
+  font-family: inherit ;
+}
+
+.value-table{
+  margin-left: 100px;
+  margin-top: 30px;
+}
+
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+  width: 200px;
+}
+
+
+.input-result{
+  width: 400px;
+}
+
+
+.input-amount{
+  width: 400px;
+}
+
+.span {cursor:pointer; }
+
+.wrapper2{
+  overflow: hidden;
+  margin-left:50px;
+}
+
+.number{
+  width:400px;
+  padding: 10px;
+}
+
+input{
+
+  text-align: center;
+  border:1px solid #ddd;
+  border-radius:4px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.first2 {
+  float:left; 
+  margin-top: 30px;
+}
+.second2 {
+float:left;
+margin: 30px;
+}
+
+.third{
+  margin-left: 100px;
+  width: 400px;
+ 
+}
+
+.value{
+  margin-left: 100px;
+}
+
+
+.amount{
+  font-size: 30px;
+  margin-left: 0px;
+  margin-top: 50px;
+}
+
+.btn {
+  border: none;
+  background-color: inherit;
+  padding: 14px 28px;
+  font-size: 30px;
+  cursor: pointer;
+  display: inline-block;
+  margin: 10px;
+}
+
+/* Green */
+.success {
+  color: green;
+}
+
+.success:hover {
+  background-color: #04AA6D;
+  color: white;
+}
+
+/* Blue */
+.info {
+  color: red;
+}
+
+.info:hover {
+  background: red;
+  color: white;
+}
+
+/* Orange */
+.warning {
+  color: blue;
+}
+
+.warning:hover {
+  background: blue;
+  color: white;
+}
+
+.label{
+  
+font-family: inherit;
+}
+
+.container{
+  margin-right: auto;
+  margin-left: auto;
+  justify-content: center;
+}
+
+
+h1{
+  font-size: 30px;
+}
+

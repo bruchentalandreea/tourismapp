@@ -1,0 +1,484 @@
+<head>
+    <meta charset="utf-8">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+  <link src="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"  crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"  crossorigin="anonymous"></script>
+  <meta name="referrer" content="origin">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons&display=block" rel="stylesheet">
+  
+</head>
+<body>
+    <div class="jumbotron " >
+    <div class="container">
+        <h1 style=" background-color: white; border:none;  margin:20px" >Select type of vacation:</h1>
+        <hr>
+        <div class="w3-container"  >
+            <div class="card-container">
+                <div class="trip-type">
+                    <mat-card class="type" >
+                        <picture>
+                           
+                            <img mat-card-image src="https://i.ibb.co/M6CG8hC/summer.jpg"  style="margin: 0px;" alt="Photo of wallet">
+                        </picture>
+                    </mat-card >	
+                    <section class="example-section">
+                        <mat-checkbox class="example-margin" [checked]="selectedType === 'Summer vacation'" (change)="switchType('Summer vacation')" >Summer vacation</mat-checkbox>
+                      </section>
+                </div>
+                <div class="trip-type">
+                    <mat-card class="type" >
+                        <picture>
+                            <source media='(min-width:0px)' srcset="https://i.ibb.co/nkSPgK4/winter-vacation-merano-hotel.jpg">
+                            <img mat-card-image src=""  style="margin: 0px;" alt="Photo of wallet">
+                        </picture>
+                    </mat-card >	
+                    <section class="example-section">
+                        <mat-checkbox class="example-margin"  [checked]="selectedType === 'Winter vacation'" (change)="switchType('Winter vacation')">Winter vacation</mat-checkbox>
+                      </section>
+                </div>
+                <div class="trip-type">
+                    <mat-card class="type" >
+                        <picture>
+                            <source media='(min-width:0px)' srcset="https://i.ibb.co/kgQn8tk/Tips-for-business-travellers-BL.jpg">
+                            <img mat-card-image src=""  style="margin: 0px;" alt="Photo of wallet">
+                        </picture>
+                    </mat-card >	
+                    <section class="example-section">
+                        <mat-checkbox class="example-margin"  [checked]="selectedType === 'Business trip'" (change)="switchType('Business trip')" >Business trip</mat-checkbox>
+                      </section>
+                </div>
+                <div class="trip-type">
+                    <mat-card class="type" >
+                        <picture>
+                            <source media='(min-width:0px)' srcset="https://i.ibb.co/XC3kdGn/1552112589-shutterstock-1050363536-jpg.jpg">
+                            <img mat-card-image src=""  style="margin: 0px;" alt="Photo of wallet">
+                        </picture>
+                    </mat-card >	
+                    <section class="example-section">
+                        <mat-checkbox class="example-margin"  [checked]="selectedType === 'Honeymoon'" (change)="switchType('Honeymoon')" >Honeymoon</mat-checkbox>
+                      </section>
+                </div>
+                <div class="trip-type">
+                    <mat-card class="type" >
+                        <picture>
+                            <source media='(min-width:0px)' srcset="https://i.ibb.co/1XkNq5y/Croaziera-foto-NAN728.jpg">
+                            <img mat-card-image src=""  style="margin: 0px;" alt="Photo of wallet">
+                        </picture>
+                    </mat-card >	
+                    <section class="example-section">
+                        <mat-checkbox class="example-margin" [checked]="selectedType === 'Cruise'" (change)="switchType('Cruise')">Cruise</mat-checkbox>
+                      </section>
+                </div>
+                <br>
+           
+            </div>
+            <button   type="button" mdbBtn color="primary" mdbWavesEffect style="margin-left: 40px; margin-bottom: 40px;" (click)=filterPostsByType() >Filter by type</button><br>
+            <span style="margin-left: 40px;" class="show" *ngIf="type_invalid">*Please select a type!</span>
+            <h1 style=" background-color: white; border:none;  margin:20px" mdbWavesEffect >Select vacation details:</h1>
+            <hr>
+            <div class="wrapper">
+                <div class="first">
+                    <div>
+                        <label for="country">Country</label><span style="color: red !important; display: inline; float: none;">*</span>    
+                        <select id="country"  [(ngModel)]="country" name="country" class="form-control" style="width: min-content; "  required>
+                            <option value="">Please select county/state</option>
+                            <option value="Afganistan">Afghanistan</option>
+                            <option value="Albania">Albania</option>
+                            <option value="Algeria">Algeria</option>
+                            <option value="American Samoa">American Samoa</option>
+                            <option value="Andorra">Andorra</option>
+                            <option value="Angola">Angola</option>
+                            <option value="Anguilla">Anguilla</option>
+                            <option value="Antigua & Barbuda">Antigua & Barbuda</option>
+                            <option value="Argentina">Argentina</option>
+                            <option value="Armenia">Armenia</option>
+                            <option value="Aruba">Aruba</option>
+                            <option value="Australia">Australia</option>
+                            <option value="Austria">Austria</option>
+                            <option value="Azerbaijan">Azerbaijan</option>
+                            <option value="Bahamas">Bahamas</option>
+                            <option value="Bahrain">Bahrain</option>
+                            <option value="Bangladesh">Bangladesh</option>
+                            <option value="Barbados">Barbados</option>
+                            <option value="Belarus">Belarus</option>
+                            <option value="Belgium">Belgium</option>
+                            <option value="Belize">Belize</option>
+                            <option value="Benin">Benin</option>
+                            <option value="Bermuda">Bermuda</option>
+                            <option value="Bhutan">Bhutan</option>
+                            <option value="Bolivia">Bolivia</option>
+                            <option value="Bonaire">Bonaire</option>
+                            <option value="Bosnia & Herzegovina">Bosnia & Herzegovina</option>
+                            <option value="Botswana">Botswana</option>
+                            <option value="Brazil">Brazil</option>
+                            <option value="British Indian Ocean Ter">British Indian Ocean Ter</option>
+                            <option value="Brunei">Brunei</option>
+                            <option value="Bulgaria">Bulgaria</option>
+                            <option value="Burkina Faso">Burkina Faso</option>
+                            <option value="Burundi">Burundi</option>
+                            <option value="Cambodia">Cambodia</option>
+                            <option value="Cameroon">Cameroon</option>
+                            <option value="Canada">Canada</option>
+                            <option value="Canary Islands">Canary Islands</option>
+                            <option value="Cape Verde">Cape Verde</option>
+                            <option value="Cayman Islands">Cayman Islands</option>
+                            <option value="Central African Republic">Central African Republic</option>
+                            <option value="Chad">Chad</option>
+                            <option value="Channel Islands">Channel Islands</option>
+                            <option value="Chile">Chile</option>
+                            <option value="China">China</option>
+                            <option value="Christmas Island">Christmas Island</option>
+                            <option value="Cocos Island">Cocos Island</option>
+                            <option value="Colombia">Colombia</option>
+                            <option value="Comoros">Comoros</option>
+                            <option value="Congo">Congo</option>
+                            <option value="Cook Islands">Cook Islands</option>
+                            <option value="Costa Rica">Costa Rica</option>
+                            <option value="Cote DIvoire">Cote DIvoire</option>
+                            <option value="Croatia">Croatia</option>
+                            <option value="Cuba">Cuba</option>
+                            <option value="Curaco">Curacao</option>
+                            <option value="Cyprus">Cyprus</option>
+                            <option value="Czech Republic">Czech Republic</option>
+                            <option value="Denmark">Denmark</option>
+                            <option value="Djibouti">Djibouti</option>
+                            <option value="Dominica">Dominica</option>
+                            <option value="Dominican Republic">Dominican Republic</option>
+                            <option value="East Timor">East Timor</option>
+                            <option value="Ecuador">Ecuador</option>
+                            <option value="Egypt">Egypt</option>
+                            <option value="El Salvador">El Salvador</option>
+                            <option value="Equatorial Guinea">Equatorial Guinea</option>
+                            <option value="Eritrea">Eritrea</option>
+                            <option value="Estonia">Estonia</option>
+                            <option value="Ethiopia">Ethiopia</option>
+                            <option value="Falkland Islands">Falkland Islands</option>
+                            <option value="Faroe Islands">Faroe Islands</option>
+                            <option value="Fiji">Fiji</option>
+                            <option value="Finland">Finland</option>
+                            <option value="France">France</option>
+                            <option value="French Guiana">French Guiana</option>
+                            <option value="French Polynesia">French Polynesia</option>
+                            <option value="French Southern Ter">French Southern Ter</option>
+                            <option value="Gabon">Gabon</option>
+                            <option value="Gambia">Gambia</option>
+                            <option value="Georgia">Georgia</option>
+                            <option value="Germany">Germany</option>
+                            <option value="Ghana">Ghana</option>
+                            <option value="Gibraltar">Gibraltar</option>
+                            <option value="Great Britain">Great Britain</option>
+                            <option value="Greece">Greece</option>
+                            <option value="Greenland">Greenland</option>
+                            <option value="Grenada">Grenada</option>
+                            <option value="Guadeloupe">Guadeloupe</option>
+                            <option value="Guam">Guam</option>
+                            <option value="Guatemala">Guatemala</option>
+                            <option value="Guinea">Guinea</option>
+                            <option value="Guyana">Guyana</option>
+                            <option value="Haiti">Haiti</option>
+                            <option value="Hawaii">Hawaii</option>
+                            <option value="Honduras">Honduras</option>
+                            <option value="Hong Kong">Hong Kong</option>
+                            <option value="Hungary">Hungary</option>
+                            <option value="Iceland">Iceland</option>
+                            <option value="Indonesia">Indonesia</option>
+                            <option value="India">India</option>
+                            <option value="Iran">Iran</option>
+                            <option value="Iraq">Iraq</option>
+                            <option value="Ireland">Ireland</option>
+                            <option value="Isle of Man">Isle of Man</option>
+                            <option value="Israel">Israel</option>
+                            <option value="Italy">Italy</option>
+                            <option value="Jamaica">Jamaica</option>
+                            <option value="Japan">Japan</option>
+                            <option value="Jordan">Jordan</option>
+                            <option value="Kazakhstan">Kazakhstan</option>
+                            <option value="Kenya">Kenya</option>
+                            <option value="Kiribati">Kiribati</option>
+                            <option value="Korea North">Korea North</option>
+                            <option value="Korea Sout">Korea South</option>
+                            <option value="Kuwait">Kuwait</option>
+                            <option value="Kyrgyzstan">Kyrgyzstan</option>
+                            <option value="Laos">Laos</option>
+                            <option value="Latvia">Latvia</option>
+                            <option value="Lebanon">Lebanon</option>
+                            <option value="Lesotho">Lesotho</option>
+                            <option value="Liberia">Liberia</option>
+                            <option value="Libya">Libya</option>
+                            <option value="Liechtenstein">Liechtenstein</option>
+                            <option value="Lithuania">Lithuania</option>
+                            <option value="Luxembourg">Luxembourg</option>
+                            <option value="Macau">Macau</option>
+                            <option value="Macedonia">Macedonia</option>
+                            <option value="Madagascar">Madagascar</option>
+                            <option value="Malaysia">Malaysia</option>
+                            <option value="Malawi">Malawi</option>
+                            <option value="Maldives">Maldives</option>
+                            <option value="Mali">Mali</option>
+                            <option value="Malta">Malta</option>
+                            <option value="Marshall Islands">Marshall Islands</option>
+                            <option value="Martinique">Martinique</option>
+                            <option value="Mauritania">Mauritania</option>
+                            <option value="Mauritius">Mauritius</option>
+                            <option value="Mayotte">Mayotte</option>
+                            <option value="Mexico">Mexico</option>
+                            <option value="Midway Islands">Midway Islands</option>
+                            <option value="Moldova">Moldova</option>
+                            <option value="Monaco">Monaco</option>
+                            <option value="Mongolia">Mongolia</option>
+                            <option value="Montserrat">Montserrat</option>
+                            <option value="Morocco">Morocco</option>
+                            <option value="Mozambique">Mozambique</option>
+                            <option value="Myanmar">Myanmar</option>
+                            <option value="Nambia">Nambia</option>
+                            <option value="Nauru">Nauru</option>
+                            <option value="Nepal">Nepal</option>
+                            <option value="Netherland Antilles">Netherland Antilles</option>
+                            <option value="Netherlands">Netherlands (Holland, Europe)</option>
+                            <option value="Nevis">Nevis</option>
+                            <option value="New Caledonia">New Caledonia</option>
+                            <option value="New Zealand">New Zealand</option>
+                            <option value="Nicaragua">Nicaragua</option>
+                            <option value="Niger">Niger</option>
+                            <option value="Nigeria">Nigeria</option>
+                            <option value="Niue">Niue</option>
+                            <option value="Norfolk Island">Norfolk Island</option>
+                            <option value="Norway">Norway</option>
+                            <option value="Oman">Oman</option>
+                            <option value="Pakistan">Pakistan</option>
+                            <option value="Palau Island">Palau Island</option>
+                            <option value="Palestine">Palestine</option>
+                            <option value="Panama">Panama</option>
+                            <option value="Papua New Guinea">Papua New Guinea</option>
+                            <option value="Paraguay">Paraguay</option>
+                            <option value="Peru">Peru</option>
+                            <option value="Phillipines">Philippines</option>
+                            <option value="Pitcairn Island">Pitcairn Island</option>
+                            <option value="Poland">Poland</option>
+                            <option value="Portugal">Portugal</option>
+                            <option value="Puerto Rico">Puerto Rico</option>
+                            <option value="Qatar">Qatar</option>
+                            <option value="Republic of Montenegro">Republic of Montenegro</option>
+                            <option value="Republic of Serbia">Republic of Serbia</option>
+                            <option value="Reunion">Reunion</option>
+                            <option value="Romania">Romania</option>
+                            <option value="Russia">Russia</option>
+                            <option value="Rwanda">Rwanda</option>
+                            <option value="St Barthelemy">St Barthelemy</option>
+                            <option value="St Eustatius">St Eustatius</option>
+                            <option value="St Helena">St Helena</option>
+                            <option value="St Kitts-Nevis">St Kitts-Nevis</option>
+                            <option value="St Lucia">St Lucia</option>
+                            <option value="St Maarten">St Maarten</option>
+                            <option value="St Pierre & Miquelon">St Pierre & Miquelon</option>
+                            <option value="St Vincent & Grenadines">St Vincent & Grenadines</option>
+                            <option value="Saipan">Saipan</option>
+                            <option value="Samoa">Samoa</option>
+                            <option value="Samoa American">Samoa American</option>
+                            <option value="San Marino">San Marino</option>
+                            <option value="Sao Tome & Principe">Sao Tome & Principe</option>
+                            <option value="Saudi Arabia">Saudi Arabia</option>
+                            <option value="Senegal">Senegal</option>
+                            <option value="Seychelles">Seychelles</option>
+                            <option value="Sierra Leone">Sierra Leone</option>
+                            <option value="Singapore">Singapore</option>
+                            <option value="Slovakia">Slovakia</option>
+                            <option value="Slovenia">Slovenia</option>
+                            <option value="Solomon Islands">Solomon Islands</option>
+                            <option value="Somalia">Somalia</option>
+                            <option value="South Africa">South Africa</option>
+                            <option value="Spain">Spain</option>
+                            <option value="Sri Lanka">Sri Lanka</option>
+                            <option value="Sudan">Sudan</option>
+                            <option value="Suriname">Suriname</option>
+                            <option value="Swaziland">Swaziland</option>
+                            <option value="Sweden">Sweden</option>
+                            <option value="Switzerland">Switzerland</option>
+                            <option value="Syria">Syria</option>
+                            <option value="Tahiti">Tahiti</option>
+                            <option value="Taiwan">Taiwan</option>
+                            <option value="Tajikistan">Tajikistan</option>
+                            <option value="Tanzania">Tanzania</option>
+                            <option value="Thailand">Thailand</option>
+                            <option value="Togo">Togo</option>
+                            <option value="Tokelau">Tokelau</option>
+                            <option value="Tonga">Tonga</option>
+                            <option value="Trinidad & Tobago">Trinidad & Tobago</option>
+                            <option value="Tunisia">Tunisia</option>
+                            <option value="Turkey">Turkey</option>
+                            <option value="Turkmenistan">Turkmenistan</option>
+                            <option value="Turks & Caicos Is">Turks & Caicos Is</option>
+                            <option value="Tuvalu">Tuvalu</option>
+                            <option value="Uganda">Uganda</option>
+                            <option value="United Kingdom">United Kingdom</option>
+                            <option value="Ukraine">Ukraine</option>
+                            <option value="United Arab Erimates">United Arab Emirates</option>
+                            <option value="United States of America">United States of America</option>
+                            <option value="Uraguay">Uruguay</option>
+                            <option value="Uzbekistan">Uzbekistan</option>
+                            <option value="Vanuatu">Vanuatu</option>
+                            <option value="Vatican City State">Vatican City State</option>
+                            <option value="Venezuela">Venezuela</option>
+                            <option value="Vietnam">Vietnam</option>
+                            <option value="Virgin Islands (Brit)">Virgin Islands (Brit)</option>
+                            <option value="Virgin Islands (USA)">Virgin Islands (USA)</option>
+                            <option value="Wake Island">Wake Island</option>
+                            <option value="Wallis & Futana Is">Wallis & Futana Is</option>
+                            <option value="Yemen">Yemen</option>
+                            <option value="Zaire">Zaire</option>
+                            <option value="Zambia">Zambia</option>
+                            <option value="Zimbabwe">Zimbabwe</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="state">County</label><span style="color: red !important; display: inline; float: none;">*</span>    
+                        <select id="state"  [(ngModel)]="state" name="state" class="form-control" style="width: min-content;"  required>
+                            <option value="">Please select county/state</option>
+                            <option value="Cluj">Cluj</option>
+                            <option value="Alba">Alba</option>
+                            <option value="Arad">Arad</option>
+                            <option value="Arges">Arges</option>
+                            <option value="Bacau">Bacau</option>
+                            <option value="Bihor">Bihor</option>
+                            <option value="Bistrita Nasaud">Bistrita Nasaud</option>
+                            <option value="Botosani">Botosani</option>
+                            <option value="Brasov">Brasov</option>
+                            <option value="Byala">Byala</option>
+                            <option value="Athens">Athens</option>
+                            <option value="Lapland">Lapland</option>
+                            <option value="Ibrahim Mohamed Solih">Ibrahim Mohamed Solih</option>
+                            <option value="Santa Cruz de Tenerife">Santa Cruz de Tenerife</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="city">City</label><span style="color: red !important; display: inline; float: none;">*</span>    
+                        <select id="city"  [(ngModel)]="city" name="city" class="form-control" style="width: min-content;"  required> 
+                            <option value="">Please select city</option>
+                            <option value="Campia Turzii">Campia Turzii</option>
+                            <option value="Cluj-Napoca">Cluj-Napoca</option>
+                            <option value="Bucuresti">Bucuresti</option>
+                            <option value="Tenerife">Tenerife</option>
+                            <option value="Maldive Islands">Maldive Islands</option>
+                            <option value="Rovaniemi">Rovaniemi</option>
+                            <option value="Breaza">Breaza</option>
+                            <option value="Attica">Attica</option>
+                            <option value="Varna">Varna</option>
+                        </select>
+                    </div>
+                    <button type="button" mdbBtn color="primary" mdbWavesEffect style="margin-top: 10px; margin-left: 0px;"  (click)=filterPostsByLocation() >Filter by location</button><br>
+                    <span class="show" *ngIf="location_invalid">*Please enter city,county and country!</span>
+                </div>
+                <div class="second">
+                    <div class="oaspeti-div">
+                        <section style="box-sizing: border-box;">
+                        <ul class="oaspeti-div-div" style="list-style-type:none;">
+                            <li class="adulti"  >
+                                <div class="adulti-copii">Persons<span style="color: red !important; display: inline; float: none;">*</span> </div>
+                                <input class="adulti-copii-plus" placeholder="0" [(ngModel)]="nr_of_persons"  required>
+                            </li>
+                        </ul>
+                        <br>
+                        <button type="button" mdbBtn color="primary" mdbWavesEffect style="margin-left: 30px;" (click)=filterPostsByNrOfPersons() >Filter by number of persons</button>
+                        </section> 
+                        <br>
+                        <span style="margin-left: 30px;" class="show" *ngIf="persons_invalid">*Please enter number of persons!</span>
+                    </div>
+                </div>
+                <div class="third">
+                        Check-In:<span style="color: red !important; display: inline; float: none;">*</span><br>
+                        <input type="date"  [(ngModel)]="check_in_date" class="check_in_date"><br>
+                        
+                        Check-Out:<span style="color: red !important; display: inline; float: none; ">*</span><br>
+                        <input type="date"  [(ngModel)]="check_out_date" class="check_out_date"><br>
+                       <br>
+                        <button type="button" mdbBtn color="primary" mdbWavesEffect  (click)=filterPostsByDate() >Filter by date</button> <br>
+                        <span class="show" *ngIf="dates_invalid">*Please enter dates!</span>
+                </div>
+                <div class="fourth">
+                    <div >Bugetul  </div>
+                    <input class="bugetMinim" [(ngModel)]="priceMin" placeholder="Suma minima" style="margin-bottom: 5px;"> <br>
+                    <input class="bugetMaxim" [(ngModel)]="priceMax"   placeholder="suma maxima" style="margin-bottom: 5px;"> <br>
+
+                    <button type="button" mdbBtn color="primary" mdbWavesEffect (click)="filterPostsByPrice()" >Filter by price</button> <br>
+                    <span class="show" *ngIf="price_invalid">*Please enter a price!</span>
+                </div>
+            </div>
+            <div>
+                <h1 style=" background-color: white; border:none;  margin:20px"  mdbWavesEffect>Last minute offers with fixed dates:</h1>
+                <hr>
+                <div *ngIf="edited" >
+                    <button  class="btn btn-primary" style="margin-bottom: 20px;" > 
+                        <div >
+                        <a class="oferta-noua" href="/add-post">Add new offer</a> 
+                        </div>
+                    </button>
+                </div>
+                <div  class="card-list" fxLayout="row wrap"  >
+                    <div  class="card" fxFlex="30%" *ngFor="let post of posts | async" style="margin:10px;" >
+                        <div class="container-img img-hover-zoom" (click)="singlePost(post.id)">
+                            <img src={{post.photoId}}  style="width:100%" >
+                            <button *ngIf="edited"  (click)=deletePost(post.id) class="btn">Delete <i class="fa fa-remove"></i></button> 
+                        </div>
+                       
+                        <h4><a href="/single-post/{{post.id}}"  class="post-title">{{post.title}}</a></h4>
+                
+                        <div>
+                            <div class="location"><p type="text">{{post.country}} {{post.city }}</p></div>
+                            
+                        </div>
+                        <div>
+                            <div class="check"><i  class="fa fa-calendar"></i>Check-In: <p type="date">{{post.check_in_date }}</p></div>
+                            <div class="check"><i  class="fa fa-calendar"></i>Check-Out: <p type="date" >{{post.check_out_date}}</p></div>
+                        </div>
+                        <div class="icon text-center">
+                            <svg class="star-rating" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" style=" height: 14px; width: 14px; fill: currentcolor;"><path d="M15.094 1.579l-4.124 8.885-9.86 1.27a1 1 0 0 0-.542 1.736l7.293 6.565-1.965 9.852a1 1 0 0 0 1.483 1.061L16 25.951l8.625 4.997a1 1 0 0 0 1.482-1.06l-1.965-9.853 7.293-6.565a1 1 0 0 0-.541-1.735l-9.86-1.271-4.127-8.885a1 1 0 0 0-1.814 0z" fill-rule="evenodd"></path></svg>
+                            <span aria-hidden="true" class="r1g2zmv6 dir dir-ltr">{{post.avgRating}}</span> 
+                          </div>
+                         <div><i class="fa fa-money"></i>Price: {{post.price}} EURO</div>   
+
+                        <div>
+                            <a type="button" href="/single-post/{{post.id}}" class="read-more btn btn-default">Read More</a>
+                        </div>
+                        
+                    </div>
+                </div>
+                <h1 style=" background-color: white; border:none; margin:20px"  mdbWavesEffect>Check our holidays:</h1>
+                <hr>
+                <div *ngIf="edited" >
+                    <button  class="btn btn-primary"  > 
+                        <div >
+                        <a class="oferta-noua" href="/add-holiday">Add new holiday</a> 
+                        </div>
+                    </button>
+                </div>
+                <div  class="card-list" fxLayout="row wrap"  >
+                      <div  class="card" fxFlex="30%" *ngFor="let holiday of holidays | async" style="margin:10px;" >
+                        <div class="container-img img-hover-zoom" (click)="singleHoliday(holiday.id)">
+                          <img  src={{holiday.photoId}} style="width:100%">
+                          <button *ngIf="edited"  (click)=deleteHoliday(holiday.id) class="btn">Delete <i class="fa fa-remove"></i></button>
+                        </div>
+                          <h4><a href="/single-holiday/{{holiday.id}}"  class="post-title">{{holiday.title}}</a></h4>
+                          <div class="text-center">
+                            <div class="location"><p type="text">{{holiday.country}} {{holiday.city }}</p></div>
+                        </div>
+                        <div class="icon text-center">
+                            <svg class="star-rating" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" style=" height: 14px; width: 14px; fill: currentcolor;"><path d="M15.094 1.579l-4.124 8.885-9.86 1.27a1 1 0 0 0-.542 1.736l7.293 6.565-1.965 9.852a1 1 0 0 0 1.483 1.061L16 25.951l8.625 4.997a1 1 0 0 0 1.482-1.06l-1.965-9.853 7.293-6.565a1 1 0 0 0-.541-1.735l-9.86-1.271-4.127-8.885a1 1 0 0 0-1.814 0z" fill-rule="evenodd"></path></svg>
+                            <span aria-hidden="true" class="r1g2zmv6 dir dir-ltr">{{holiday.avgRating}}</span>  
+                          </div>
+                          <div>  <i class="fa fa-money"></i>Price: {{holiday.price}} EURO</div>  
+
+                          <div>
+                              <a type="button" href="/single-holiday/{{holiday.id}}" class="read-more btn btn-default">Read More</a>
+                          </div>
+                      </div>
+                    </div>
+              
+            </div>
+        </div>
+    </div> 
+</div>
+</body>

@@ -1,0 +1,105 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+<link src="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"  crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"  crossorigin="anonymous"></script>
+<meta name="referrer" content="origin">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons&display=block" rel="stylesheet">
+
+
+<head>
+    <meta name="referrer" content="origin">
+  
+</head>
+<body>
+    <div class="jumbotron " >
+        <div class="w3-container"  >
+       
+            <div class="row">
+                    <div class="col ">
+                    <h4><div class="holiday-title"><p type="text">{{holiday.title}}</p></div></h4>
+                    <div>
+                        <div class="location"><p type="text">{{holiday.city}}, {{holiday.state}}, {{holiday.country}}</p></div>
+                    </div>
+                   </div>
+                   <div class="col float-right text-right" >
+                       <div><p type="text">{{holiday.created_on}}</p> </div>
+                       <div><p type="text">{{holiday.updated_on}}</p> </div>
+                   </div>
+                    <div class="row">
+                        <mdb-carousel class="carousel slide carousel-fade" [type]="'carousel-thumbnails'" [animation]="'fade'">
+                            <mdb-carousel-item>
+                              <img class="d-block w-100" src={{holiday.photoId}} alt="First slide">
+                            </mdb-carousel-item>
+                            <mdb-carousel-item>
+                              <img class="d-block w-100" src={{listPhotoElem2}} alt="Second slide">
+                            </mdb-carousel-item>
+                            <mdb-carousel-item>
+                              <img class="d-block w-100" src={{listPhotoElem3}} alt="Third slide">
+                            </mdb-carousel-item>
+                          </mdb-carousel>
+                          
+                
+            
+                     </div>
+                     <div class="col">
+                        <div>
+                            <h1> House hosted by : {{holiday.username}}</h1>
+                        </div>
+                        <hr>
+                        <div>
+                            Facilities: <p [innerHTML]="holiday.content"></p>
+
+                            <ng-template #t let-fill="fill">
+                                <span class="star" [class.full]="fill === 100">
+                                    <span class="half" [style.width.%]="fill">&hearts;</span>&hearts;
+                                </span>
+                            </ng-template>
+                            <div *ngIf="show_stars">
+                            <p class="text-center"  ><button style="background-color: white; border: none;"><div class="star-rating-container star-rating-animation" fxLayout="row" fxLayoutAlign="start center" >
+            
+                                <div *ngFor="let star of stars" [ngClass]="[star.class]" (click)="selectStar(star.id,holiday.id,holiday.username)">
+                                    <mat-icon>{{star.icon}}</mat-icon>
+                                </div>
+                                </div></button>
+                            </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <mat-card class="date-picker " style="max-width: 650px;">
+                            <h2>Add dates and number of persons for prices:</h2> 
+                            
+                                <div >
+                                    <label style="width: 166.19px ;" for="new-holiday-date-in">Check-In:</label>
+                                    <input type="date" style="width: 300px;"  [(ngModel)]="check_in_date_holiday "/>
+                                </div>
+                                <div >
+                                    <label style="width: 166.19px; " for="new-holiday-date-out">Check-out:</label>
+                                    <input type="date"  style="width: 300px;"  [(ngModel)]="check_out_date_holiday"   />
+                                </div>
+                                <span class="alert" *ngIf="alert">*Add dates before booking</span>
+                            <p><span>Enter number of persons: </span><input style="    width: 300px;" class="text-center" type='number' placeholder='Enter persons' min="1" max={{holiday.nr_of_persons}}  [(ngModel)]='qty_persons'></p>
+                            <div>
+                               <p><span>Your total is : <b>  <i class="fa fa-money"></i>{{totalPrice}} EURO</b></span></p>
+                            </div>
+                            <span class="login_invalid" *ngIf="login_invalid">*Please log in first <a href="/login-page"> <u>here</u></a> </span>
+                            <div class=" text-center" (click)="go()"  > <button>Book</button></div>
+                        </mat-card>
+                    </div>
+                    
+                    <div class="row">
+                        <hr>
+
+                        <div class="holiday-persons"><p type="text" >This place guests: {{holiday.nr_of_persons}} persons</p></div>
+                        <div>Price per night: {{holiday.price}} EURO</div>
+                    </div>
+                   
+                </div>
+     
+        </div>
+    </div>
+</body>
+

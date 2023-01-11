@@ -1,0 +1,109 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+<link src="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"  crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"  crossorigin="anonymous"></script>
+<meta name="referrer" content="origin">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons&display=block" rel="stylesheet">
+
+
+<head>
+    <meta name="referrer" content="origin">
+  
+</head>
+<body>
+    <div class="jumbotron " >
+        <div class="w3-container"  >
+       
+            <div class="row">
+                    <div class="col ">
+                    <h4><div class="post-title"><p type="text">{{post.title}}</p></div></h4>
+                    <div>
+                        <div class="location"><p type="text">{{post.city}}, {{post.state}}, {{post.country}}</p></div>
+                    </div>
+                   </div>
+                   <div class="col float-right text-right" >
+                       <div><p type="text">{{post.created_on}}</p> </div>
+                       <div><p type="text">{{post.updated_on}}</p> </div>
+                   </div>
+                    <div class="row">
+                        <mdb-carousel class="carousel slide carousel-fade" [type]="'carousel-thumbnails'" [animation]="'fade'">
+                            <mdb-carousel-item>
+                              <img class="d-block w-100" src={{post.photoId}} alt="First slide">
+                            </mdb-carousel-item>
+                            <mdb-carousel-item>
+                              <img class="d-block w-100" src={{listPhotoElem2}} alt="Second slide">
+                            </mdb-carousel-item>
+                            <mdb-carousel-item>
+                              <img class="d-block w-100" src={{listPhotoElem3}} alt="Third slide">
+                            </mdb-carousel-item>
+                          </mdb-carousel>
+                          
+                
+            
+                     </div>
+                     <div class="col">
+                        <div>
+                            <h1> House hosted by : {{post.username}}</h1>
+                        </div>
+                        <hr>
+                        <div>
+                            Facilities: <p [innerHTML]="post.content"></p>
+                            <ng-template #t let-fill="fill">
+                                <span class="star" [class.full]="fill === 100">
+                                    <span class="half" [style.width.%]="fill">&hearts;</span>&hearts;
+                                </span>
+                            </ng-template>
+                            <ng-template #t let-fill="fill">
+                                <span class="star" [class.full]="fill === 100">
+                                    <span class="half" [style.width.%]="fill">&hearts;</span>&hearts;
+                                </span>
+                            </ng-template>
+                
+                            <p class="text-center"><button style="background-color: white; border: none;"><div class="star-rating-container star-rating-animation" fxLayout="row" fxLayoutAlign="start center" >
+            
+                                <div *ngFor="let star of stars" [ngClass]="[star.class]" (click)="selectStar(star.id,post.id,post.username)">
+                                    <mat-icon>{{star.icon}}</mat-icon>
+                                </div>
+                                </div></button>
+                            </p>
+
+                        </div>
+                    </div>
+                    <div class="col" style="max-width: 500px;">
+                        <mat-card class="date-picker text-center">
+                            <h2>Dates and prices:</h2> 
+                            <form >
+                                <div class="float-child" >
+                                    <label for="new-post-date">Check-In</label>
+                                    <div>{{post.check_in_date}}</div>
+                                </div>
+                                <div class="float-child">
+                                    <label for="new-post-date">Check-out</label>
+                                    <div>{{post.check_out_date}}</div>
+                                </div>
+                            </form>
+                            <p><span>Enter number of persons: </span><input style="    width: 300px;" class="text-center" type='number' placeholder='Enter persons' min="1" max={{post.nr_of_persons}}  [(ngModel)]='qty_persons'></p>
+                            <div>
+                                <i class="fa fa-money"></i>Total price: {{totalPrice}} EURO
+                            </div>
+                            <span class="login_invalid" *ngIf="login_invalid">*Please log in first <a href="/login-page"> <u>here</u></a> </span>
+                            <div class=" text-center" (click)="go()"  > <button>Book</button></div>
+                        </mat-card>
+                    </div>
+                    
+                    <div class="row">
+                        <hr>
+
+                        <div class="holiday-persons"><p type="text" >This place guests: {{post.nr_of_persons}} persons</p></div>
+                        <div>Price per night: {{post.price}} EURO</div>
+                    </div>
+  
+                </div>
+     
+        </div>
+    </div>
+</body>
+

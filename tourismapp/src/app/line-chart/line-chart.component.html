@@ -1,0 +1,47 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+<link src="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"  crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"  crossorigin="anonymous"></script>
+
+
+  <head>
+    <meta name="referrer" content="origin">
+ 
+</head>
+
+<body>
+<!-- Toolbar -->
+<div class="container">
+<div class="w3-container text-center"   >
+  <h2>Statistics regarding the user recommendations made</h2>
+ <div class="chart-wrapper" style="display: block; padding: 30px;" *ngIf="chartReady" > 
+        <canvas baseChart 
+        [data]="barChartData1"
+        [labels]="barChartLabels"
+        [options]="barChartOptions"
+        [colors]="colors"
+        [plugins]="barChartPlugins"
+        [legend]="barChartLegend"
+        [chartType]="barChartType">
+      </canvas>
+  </div>
+</div>
+</div>
+<div class="container">
+  <div class="w3-container text-center"   >
+    <h2>Statistics regarding the places by country</h2>
+   <div class="chart-wrapper" style="display: block; padding: 30px;" *ngIf="chartReady" > 
+          <canvas baseChart 
+          [data]="barChartData2"
+          [labels]="barChartLabels2"
+          [options]="barChartOptions2"
+          [colors]="colors2"
+          [plugins]="barChartPlugins2"
+          [legend]="barChartLegend2"
+          [chartType]="barChartType2">
+        </canvas>
+    </div>
+  </div>
+  </div>
+</body>

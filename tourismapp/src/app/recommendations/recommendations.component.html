@@ -1,0 +1,120 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+<link src="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"  crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"  crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600,700" rel="stylesheet">
+
+  <head>
+    <meta name="referrer" content="origin">
+ 
+</head>
+
+<body>
+<!-- Toolbar -->
+
+
+<div class="jumbotron" style="background-color: white;">
+
+    <div class="container">
+        <div class="row text-center">
+            <h3> Recommendations using K-Nearest Neighbors</h3>
+            <hr style="margin-bottom: 50px;margin-top: 50px;">
+            <div class="col"> 
+                <mat-card class="infos" style=" height: 300px; padding: 50px;">
+                    <h3>How it is working?  </h3>
+                    <p>
+                    ∙Determining the distances between the recommended user and all other users
+                    <br>
+                    ∙Determining the "k" closest users to the user for whom recommendations are made 
+                    <br>
+                    ∙Determining the posts that will be recommended 
+                    </p>
+                </mat-card>
+            </div>
+            <div class="col" style="    padding-top: 30px;">
+                <div class="chart-wrapper" style="display: block" *ngIf="chartReady" > 
+                    <canvas baseChart 
+                    [data]="barChartData1"
+                    [labels]="barChartLabels"
+                    [options]="barChartOptions"
+                    [colors]="colors"
+                    [plugins]="barChartPlugins"
+                    [legend]="barChartLegend"
+                    [chartType]="barChartType">
+                  </canvas>
+              </div>
+            </div>
+        </div>
+            <br>
+
+        <div class="container text-center" style="height: fit-content;">
+            <h3> Recommended offers</h3>
+            <div  class="card-list" fxLayout="row wrap"  >
+                <div  class="card" fxFlex="30%" *ngFor="let post of posts | async" style="margin:10px;" >
+                    <div class="container-img img-hover-zoom" (click)="singlePost(post.id)">
+                        <img src={{post.photoId}}  style="width:100%" >
+                       
+                    </div>
+                   
+                    <h4><a href="/single-post/{{post.id}}"  class="post-title">{{post.title}}</a></h4>
+            
+                    <div>
+                        <div class="location"><p type="text">{{post.country}} {{post.city }}</p></div>
+                        
+                    </div>
+                    <div>
+                        <div class="check"><i  class="fa fa-calendar"></i>Check-In: <p type="date">{{post.check_in_date }}</p></div>
+                        <div class="check"><i  class="fa fa-calendar"></i>Check-Out: <p type="date" >{{post.check_out_date}}</p></div>
+                    </div>
+                    <div class="icon text-center">
+                        <svg class="star-rating" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" style=" height: 14px; width: 14px; fill: currentcolor;"><path d="M15.094 1.579l-4.124 8.885-9.86 1.27a1 1 0 0 0-.542 1.736l7.293 6.565-1.965 9.852a1 1 0 0 0 1.483 1.061L16 25.951l8.625 4.997a1 1 0 0 0 1.482-1.06l-1.965-9.853 7.293-6.565a1 1 0 0 0-.541-1.735l-9.86-1.271-4.127-8.885a1 1 0 0 0-1.814 0z" fill-rule="evenodd"></path></svg>
+                        <span aria-hidden="true" class="r1g2zmv6 dir dir-ltr">{{post.avgRating}}</span> 
+                      </div>
+                     <div><i class="fa fa-money"></i>Price: {{post.price}} EURO</div>   
+
+                    <div>
+                        <a type="button" href="/single-post/{{post.id}}" class="read-more btn btn-default">Read More</a>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="container text-center" style="height: fit-content;">
+            <h3> Recommended holidays</h3>
+            <div  class="card-list" fxLayout="row wrap"  >
+                <div  class="card" fxFlex="30%" *ngFor="let holiday of holidays | async" style="margin:10px;" >
+                    <div class="container-img img-hover-zoom" (click)="singleHoliday(holiday.id)">
+                        <img src={{holiday.photoId}}  style="width:100%" >
+                      
+                    </div>
+                   
+                    <h4><a href="/single-holiday/{{holiday.id}}"  class="post-title">{{holiday.title}}</a></h4>
+            
+                    <div>
+                        <div class="location"><p type="text">{{holiday.country}} {{holiday.city }}</p></div>
+                        
+                    </div>
+
+                    <div class="icon text-center">
+                        <svg class="star-rating" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" style=" height: 14px; width: 14px; fill: currentcolor;"><path d="M15.094 1.579l-4.124 8.885-9.86 1.27a1 1 0 0 0-.542 1.736l7.293 6.565-1.965 9.852a1 1 0 0 0 1.483 1.061L16 25.951l8.625 4.997a1 1 0 0 0 1.482-1.06l-1.965-9.853 7.293-6.565a1 1 0 0 0-.541-1.735l-9.86-1.271-4.127-8.885a1 1 0 0 0-1.814 0z" fill-rule="evenodd"></path></svg>
+                        <span aria-hidden="true" class="r1g2zmv6 dir dir-ltr">{{holiday.avgRating}}</span> 
+                      </div>
+                     <div><i class="fa fa-money"></i>Price: {{holiday.price}} EURO</div>   
+
+                    <div>
+                        <a type="button" href="/single-holiday/{{holiday.id}}" class="read-more btn btn-default">Read More</a>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <ng-template #loading>
+            <h3>No data found for your request</h3>
+            <loading-component></loading-component>
+        </ng-template>
+    </div>
+</div>
+</body>
+

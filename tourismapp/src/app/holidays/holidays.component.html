@@ -1,0 +1,69 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+<link src="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"  crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"  crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600,700" rel="stylesheet">
+
+  <head>
+    <meta name="referrer" content="origin">
+ 
+</head>
+
+<body>
+
+<div class="jumbotron" style="background-color: white;">
+<div class="request" >Last minute offers</div> 
+  <div class="informations">
+    <div class="trip"*ngFor="let booking of bookings_post | async">
+      
+              <div class="mtr-two-column-card__left">
+                  <img src={{booking.photoId}} style="width:200px; height: fit-content;">
+                  <h3><a class="booking-title">{{booking.title}}</a></h3>
+                  <div >
+                    <div class="location"><p type="text">{{booking.country}} {{booking.city }}</p></div>
+                </div>
+                <div class="price">  <i class="fa fa-money"></i>Price: {{booking.price}} EURO</div> 
+              </div> 
+              <div class="mtr-two-column-card__right text-center"    > 
+                <button class="button_cancel  btn-danger" (click)=cancel_post(booking.id) >Cancel booking</button> <br>
+                <button  mat-raised-button class="button_finish" color="primary" (click)=go_review_post(booking.post_id,booking.id)  >Holiday finished successfully</button>
+              </div>
+      
+    </div>
+
+    <span class="show" *ngIf="no_trips_post">No future offers! Now may be the time to book that vacation <a href="/add-trip"> <u>here</u></a></span>
+    
+
+
+  </div>
+</div>
+<div class="jumbotron2" style="background-color: white;">
+  <div class="request" > Holidays</div> 
+    <div class="informations">
+      <div class="trip"*ngFor="let booking of bookings_holiday | async">
+            <div class="mtr-two-column-card__left">
+                    <img src={{booking.photoId}} style="width:200px; height: fit-content;">
+                    <h3><a class="booking-title">{{booking.title}}</a></h3>
+                    <div >
+                      <div class="location"><p type="text">{{booking.country}} {{booking.city }}</p></div>
+                  </div>
+                  <div class="price">  <i class="fa fa-money"></i>Price: {{booking.price}} EURO</div> 
+            </div>
+            <div class="mtr-two-column-card__right text-center"    > 
+
+                  <button class="button_cancel btn-danger" (click)=cancel_holiday(booking.id) >Cancel booking</button> <br>
+                  <button  mat-raised-button class="button_finish " color="primary" type="button"  (click)=go_review_holiday(booking.holiday_id,booking.id)  >Holiday finished successfully</button>
+            
+            </div>
+      </div>
+  
+      <span class="show" *ngIf="no_trips_holiday">No future holidays! Now may be the time to book that vacation <a href="/add-trip"> <u>here</u></a></span>
+      
+  
+  
+    </div>
+  </div>
+</body>
+
+ 

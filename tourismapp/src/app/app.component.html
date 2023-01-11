@@ -1,0 +1,77 @@
+<head>
+  <meta charset="utf-8">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+<link src="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"  crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"  crossorigin="anonymous"></script>
+</head>
+
+
+<router-outlet>
+
+
+<div class="toolbar" role="banner">
+  <!--
+  <img
+    width="160"
+    
+    alt="Tour Guide Logo"
+    src="https://i.ibb.co/2YD9Ngc/69c8db1389254d63b4b06c7df9c2c8ef-1.png"
+    />
+  
+    <div class="spacer"></div>
+-->
+<!--
+ <button class="menu" >
+  <div class="Meniu-Principal" >
+    <button class="menu-icon"  (click)="menuService.toggle()"><i class="fa fa-bars"></i></button>
+  </div>
+  <div class="Account">
+     <button class="account_circle" href="/account-page"><i class="fa fa-user-circle"></i></button>
+  </div>
+  </button>
+-->
+
+
+<mat-toolbar style="background-color: #3A3A3A;">
+  <div style="width: fit-content; height: fit-content; ">
+    <a href="/home"><img src="https://i.ibb.co/ZdJRZym/gsdgsg-2.png" alt="gsdgsg-2" ></a>
+  </div>   
+  <span class="fill-remaining-space"></span>
+  <button class="recommend" type="button" mdbBtn color="danger" mdbWavesEffect onclick="window.location.href='/recommendations'" >Get recommendations</button>
+  <button mat-button  style="color:white; font-size: 13px;"onclick="window.location.href='/add-trip'"> SEARCH TRIP</button>
+  <button mat-button  style="color: white;  font-size: 13px;" onclick="window.location.href='/contact'"> CONTACT US</button>
+  <button mat-button  style="color: white;  font-size: 13px;" *ngIf="loginService.isAuthenticated()" onclick="window.location.href='/user-profile'">PROFILE</button>
+  <button mat-button  style="color: #4eb478; font-size: 13px;" (click)="menuService.toggle()">&#9776;MENU</button>
+
+</mat-toolbar>
+
+
+</div>
+
+
+<div class="wrapper" *ngIf="menuService.darkMode" [class.dark-mode]="menuService.darkMode">
+  <div class="sidebar2" style="width: 230px;">
+    <div class="close-container" (click)="menuService.toggle()">
+      <div class="leftright"></div>
+      <div class="rightleft"></div>
+      <label class="close">close</label>
+    </div>
+          <h2>Menu</h2> 
+      <ul>
+          <li><a href="/home"><i class="fa fa-home"></i> Home</a></li>
+          <li  *ngIf="!loginService.isAuthenticated()" ><a href="/account-page"><i class="fa fa-pencil-square-o"></i> Sign up</a></li>
+          <li  *ngIf="!loginService.isAuthenticated()"><a href="/login-page"><i class="fa fa-plus-circle"></i> Log in</a></li>    
+          <li  *ngIf="loginService.isAuthenticated()" ><a  href="/holidays"><i class="fa fa-trip"></i>Bookings</a></li>
+          <li *ngIf="loginService.isAuthenticated()"><a    href="/wallet"><i class="fa fa-trip"></i>Wallet</a></li>
+          <li  *ngIf="loginService.isAuthenticated()" ><a (click)="logout()"><i class="fa fa-sign-out"></i>Log out</a></li>
+      </ul>  
+  </div> 
+  
+  
+</div>
+
+
+</router-outlet>
+

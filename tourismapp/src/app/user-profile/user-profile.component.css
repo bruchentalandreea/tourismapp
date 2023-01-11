@@ -1,0 +1,217 @@
+
+  .jumbotron{
+
+    padding-top: 150px;
+    background-color: white;
+  }
+
+  .trip-type{
+      padding: 30px;
+  }
+.mat-card{
+    background-color: whitesmoke;
+}
+  .type{
+   
+    width: 200px;
+    text-align: center;
+    height: 200px;
+    margin: 0px;
+      
+  }
+
+  mat-card img{
+    object-fit: cover; /*this makes the image in src fit to the size specified below*/
+    width: 100%; /* Here you can use wherever you want to specify the width and also the height of the <img>*/
+    height: 80%;
+  }
+
+.wrapper {
+    overflow: hidden; /* will contain if #first is longer than #second */
+    margin-left:100px;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+}
+
+.price {
+  color: grey;
+  font-size: 22px;
+}
+
+.card button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+  padding-left: 75px;
+  display: inline-block;
+
+}
+
+.card button:hover {
+  opacity: 0.7;
+}
+
+*{
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.oferta-noua{
+  color:white;
+}
+
+
+ .cardList {
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   justify-content: flex-start;
+ }
+ /* Column Gap */
+ .cardList > * {
+   box-sizing: border-box;
+ }
+ .cardList > *:not(:last-child) {
+   margin-right: 32px;
+ }
+
+
+ .mat-grid-tile{
+     padding: 0px;
+     margin:0px;
+ }
+ .mat-grid-list{
+    padding: 0px;
+    margin:0px;
+}
+
+
+.check{
+  float:left;
+  width:50%
+}
+
+.location{
+  float:left;
+  width:33%
+}
+
+
+.star {
+  margin: 0px 0px;
+  color: #a9a5a5;
+  display: inline-block;
+  cursor: pointer;
+  transition: all .3s;
+  transform: scale(1);
+}
+
+.star
+  mat-icon{
+    width: 40px;
+    height: 40px;
+}
+
+.star-gold{
+  color: orange;
+}
+
+
+.star-rating-animation:hover .star-hover{
+  color: orange;}
+
+
+.star-rating-animation .star-hover:hover ~ .star-hover{
+  color: #ddd;}
+
+.star-rating-animation .star-hover:hover{
+  transform: scale(1.3);}
+
+
+
+  body {
+    background: rgb(99, 39, 120)
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: #BA68C8
+}
+
+.profile-button {
+    background: rgb(99, 39, 120);
+    box-shadow: none;
+    border: none
+}
+
+.profile-button:hover {
+    background: #682773
+}
+
+.profile-button:focus {
+    background: #682773;
+    box-shadow: none
+}
+
+.profile-button:active {
+    background: #682773;
+    box-shadow: none
+}
+
+.back:hover {
+    color: #682773;
+    cursor: pointer
+}
+
+.labels {
+    font-size: 11px
+}
+
+.add-experience:hover {
+    background: #BA68C8;
+    color: #fff;
+    cursor: pointer;
+    border: solid 1px #BA68C8
+}
+
+.container{
+  margin-right: auto;
+  margin-left: auto;
+  justify-content: center;
+}
+
+.show{
+  color: red;
+  font-size: 15px;
+}
+
+.updated{
+  content:"f00c";
+  color: green;
+
+}
+
+.alert
+{
+  background-color: #bbff99;
+  color: #39ac39;
+  border-color:#39ac39; 
+  border:2px;
+  width: 100%;
+  position:fixed; 
+  top: 0px; 
+  left: 0px; 
+  z-index:9999; 
+  border-radius:3px
+
+}

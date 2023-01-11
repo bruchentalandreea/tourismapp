@@ -1,0 +1,559 @@
+
+  @import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
+  :host {
+    font-size: 14px;
+    color: #333;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 8px 0;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  .spacer {
+    flex: 1;
+  }
+.menu-icon{
+  display:inline-flex;
+  float: left;
+  color: black;
+  border: none;
+  
+
+}
+
+.account_circle {
+  display:inline-flex;
+  float: right;
+  color: grey;
+  border: none;
+
+  }
+
+  .menu{ 
+    color: grey;
+    margin:30px;
+    height: 50px;
+    width: 100px;
+    border-radius: 50px;
+    color: white;
+    margin:0px;
+    padding-inline: 10px;
+    border: none;
+  }
+
+  .menu-class{
+    display:inline-flex;
+    margin:30px
+  }
+  
+  
+  .toolbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  .add-icon{
+    position: right;
+    color:grey;
+    align-items: center;
+    display: flex;
+  }
+
+  .toolbar img {
+    margin: 0 16px;
+    align-items: center;
+    display:flex;
+    margin-top: 20px;
+  }
+ *{
+  font-family: 'Open Sans', sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+ }
+
+  .content {
+    display: flex;
+    margin: 82px auto 32px;
+    padding: 0 16px;
+    max-width: 960px;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+
+  }
+
+ 
+
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 16px;
+  }
+
+  .card {
+    border-radius: 4px;
+    border: 1px solid #eee;
+    background-color: #fafafa;
+    height: 40px;
+    width: 200px;
+    margin: 0 8px 16px;
+    padding: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease-in-out;
+    line-height: 24px;
+    position:intial;
+
+  }
+
+  .card-container .card:not(:last-child) {
+    margin-right: 0;
+  }
+
+  .card.card-small {
+    height: 16px;
+    width: 168px;
+  }
+
+  .card-container .card:not(.highlight-card) {
+    cursor: pointer;
+  }
+
+  .card-container .card:not(.highlight-card):hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+  }
+
+  .card-container .card:not(.highlight-card):hover .material-icons path {
+    fill: rgb(105, 103, 103);
+  }
+
+  .card.highlight-card {
+    margin: 82px auto 32px;
+    font-weight: 600;
+    min-width: 0%;
+    border-width: 2px;
+    border-style: solid;
+    text-align: left;
+    padding-left: 24px;
+    padding-right: 24px;
+    top:15px;
+    transform-origin: 64px 0%;
+    border: 1px solid rgb(221, 221, 221);
+    border-radius: 32px ;
+    color: rgb(34, 34, 34) ;
+    display: flex ;
+    height: 66px ;
+    width: 80% ;
+    --big-search-form-background: #F7F7F7;
+    background-color: rgb(247, 247, 247)
+  }
+
+  .card.card.highlight-card span {
+    margin-left: 100px;
+  }
+
+ 
+
+  a,
+  a:visited,
+  a:hover {
+    color: #1976d2;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: #125699;
+  }
+
+
+*{
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+}
+
+
+
+.body {
+  width: 100px;
+  height: 100px;
+}
+.wrapper{
+  display: flex;
+  z-index: 1 !important;
+  position: relative;
+}
+
+.wrapper .sidebar2{
+  width: 230px;
+  /*height: 100%;*/
+  background:white;
+  padding: 30px 0px;
+  position: absolute;
+  right: 0px;
+  padding:0px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  margin-top: 90px;
+}
+
+.wrapper .sidebar2 h2{
+  color: black;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.wrapper .sidebar2 ul li{
+  padding: 15px;
+  border-bottom: 1px solid grey;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  border-top: 1px solid rgba(255,255,255,0.05);
+}    
+
+.wrapper .sidebar2 ul li a{
+  color:  grey;
+  display: block;
+}
+
+.wrapper .sidebar2 ul li a .fas{
+  width: 25px;
+}
+
+.wrapper .sidebar2 ul li:hover{
+  background-color: #594f8d;
+}
+    
+.wrapper .sidebar2 ul li:hover a{
+  color: #fff;
+}
+
+.label{
+  cursor: pointer ;
+  display: block ;
+  background-clip: padding-box ;
+  border: 1px solid transparent ;
+  border-radius: 32px ;
+  -webkit-flex: 1 0 0% ;
+  -ms-flex: 1 0 0% ;
+  flex: 1 0 0% ;
+  min-width: 0px ;
+  padding: 14px 32px ;
+}
+
+.label-div {
+  padding: 14px 24px ;
+    
+    white-space: nowrap ;
+    width: 100% ;
+
+
+}
+
+
+
+ .name{
+  font-size: 12px ;
+  line-height: 16px ;
+  font-weight: 800 ;
+  letter-spacing: 0.04em ;
+  padding-bottom: 2px ;
+}
+
+.input-calatorie{
+  display: block ;
+  border: 0px ;
+  margin: 0px ;
+  padding: 0px ;
+  background: none ;
+  font-size: 14px ;
+  line-height: 18px ;
+  font-weight: 600 ;
+  width: fit-content;
+  color: #222222 ;
+  text-overflow: ellipsis ;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.name-input {
+  font-size: 14px ;
+  line-height: 18px ;
+  color: #717171 ;
+  font-weight: 400 ;
+  text-overflow: ellipsis ;
+  overflow-x: hidden ;
+  overflow-y: hidden ;
+  width: 100% ;
+  box-sizing: border-box;
+  display: block;
+  white-space: nowrap;
+}
+
+.line{
+  -ms-grid-row-align: center ;
+    -ms-flex-item-align: center ;
+    -webkit-align-self: center ;
+    align-self: center ;
+    border-right: 1px solid #DDDDDD ;
+    -webkit-flex: 0 0 0px ;
+    -ms-flex: 0 0 0px ;
+    flex: 0 0 0px ;
+    height: 32px ;
+    box-sizing: border-box;
+}
+.button-div{
+
+    appearance: none ;
+    background: transparent ;
+    border: 0px ;
+    color: inherit ;
+    cursor: pointer ;
+    display: block ;
+    font-family: inherit ;
+    font-size: inherit ;
+    font-weight: inherit ;
+    line-height: inherit ;
+    margin: 0px ;
+    outline: none ;
+    overflow: visible ;
+    padding: 1px ;
+    text-align: left ;
+    text-decoration: none ;
+    -webkit-user-select: auto ;
+    -moz-user-select: auto ;
+    -ms-user-select: auto ;
+    user-select: auto ;
+    -webkit-flex: 1 0 0% ;
+    -ms-flex: 1 0 0% ;
+    flex: 1 0 0% ;
+    width: 0px ;
+
+}
+
+.button-search-1{
+  -webkit-flex: 0 0 auto ;
+  cursor: pointer ;
+  -ms-flex: 0 0 auto ;
+  flex: 0 0 auto ;
+  display: block ;
+  margin:0px ;
+  padding-right: 9px ;
+  position: relative ;
+
+
+}
+.button-search{
+  appearance: none ;
+  background: radial-gradient(circle at center center, rgb(255, 56, 92) 0%, rgb(230, 30, 77) 27.5%, rgb(227, 28, 95) 40%, rgb(215, 4, 102) 57.5%, rgb(189, 30, 89) 75%, rgb(189, 30, 89) 100%) ;
+  border: 0px ;
+  color: rgb(255, 255, 255) ;
+  cursor: pointer ;
+  display: inline-block ;
+  font-family: inherit ;
+  font-size: 16px ;
+  font-weight: 600 ;
+  line-height: 16px ;
+  margin: 0px ;
+  outline: none ;
+  overflow: hidden ;
+  padding: 0px ;
+  text-align: inherit ;
+  text-decoration: none ;
+  user-select: auto ;
+  border-radius: 24px ;
+  height: 48px ;
+  max-width: 48px ;
+  position: relative ;
+  vertical-align: middle ;
+
+}
+
+.cauta-span{
+  display: block ;
+  position: relative ;
+}
+ 
+
+
+
+
+.recommend{
+  margin-right: 430px;
+}
+
+.recommend:hover {
+  box-shadow: white 0 3px 8px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.sidepanel {
+  height: 250px; /* Specify a height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 0;
+  left: 0;
+  background-color: #111; /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidepanel */
+}
+
+/* The sidepanel links */
+.sidepanel a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidepanel a:hover {
+  color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sidepanel .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 100px;
+  color:black;
+
+}
+
+/* Style the button that is used to open the sidepanel */
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+
+  color: black;
+  padding: 10px 15px;
+  border: none;
+}
+
+.openbtn:hover {
+  background-color: #444;
+}
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    height: 50px;
+    width: 100%;
+    background: black;
+    color: white;
+    text-align: center;
+}
+
+
+
+
+
+body{
+  background-color:#1E272D;
+}
+
+.close-container{
+  position: relative;
+  height: 40px;
+  cursor: pointer;
+  margin-left: 200px;
+}
+
+.leftright{
+  height: 4px;
+  width: 20px;
+  position: absolute;
+  margin-top: 24px;
+  background-color: grey;
+  border-radius: 2px;
+  transform: rotate(45deg);
+  transition: all .3s ease-in;
+}
+
+.rightleft{
+  height: 4px;
+  width: 20px;
+  position: absolute;
+  margin-top: 24px;
+  background-color:grey;
+  border-radius: 2px;
+  transform: rotate(-45deg);
+  transition: all .3s ease-in;
+}
+
+label{
+  color: white;
+  font-family: Helvetica, Arial, sans-serif; 
+  font-size: .6em;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: all .3s ease-in;
+  opacity: 0;
+}
+.close{
+  margin: 60px 0 0 5px;
+  position: absolute;
+}
+
+.close-container:hover .leftright{
+  transform: rotate(-45deg);
+  background-color: #F25C66;
+}
+.close-container:hover .rightleft{
+  transform: rotate(45deg);
+  background-color: #F25C66;
+}
+.close-container:hover label{
+  opacity: 1;
+}
+
+.fill-remaining-space {
+  flex: 1 1 auto;
+}
+
+

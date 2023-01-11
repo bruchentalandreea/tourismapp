@@ -1,0 +1,7 @@
+mat-list{
+    height: calc(100vh - 222px);
+}
+
+td{
+    width: 50%
+}

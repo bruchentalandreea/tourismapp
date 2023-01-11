@@ -1,0 +1,66 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+<link src="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"  crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"  crossorigin="anonymous"></script>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons&display=block" rel="stylesheet">
+<head>
+    <meta name="referrer" content="origin">
+</head>
+<body>
+    <div class="jumbotron " >
+        <div class="w3-container"  >
+             
+
+<div class="container rounded bg-white mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-3 border-right">
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span class="font-weight-bold">Username: {{username}}</span> <form [formGroup]="userProfileForm"><span class="text-black-50">{{userr.email}}</span></form><span> </span></div>
+        </div>
+
+        <div class="col-md-5 border-right border-top border-bottom">
+            <div class="p-3 py-5">
+                <form [formGroup]="userProfileForm" (ngSubmit)="submit()">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h4 class="text-right">Profile Settings</h4>
+                    </div>
+                    <div class="row mt-2 form-group">
+                        <div class="col-md-6 form-group" ><label class="labels">Name</label><input type="text"  [formControlName]="'name'" class="form-control" placeholder="first name" value="{{userr.name}}"></div>
+                        <div class="col-md-6 form-group"><label class="labels">Surname</label><input type="text" [formControlName]="'surname'" class="form-control" placeholder="surname" value="{{userr.surname}}" ></div>
+                        <span class="show" *ngIf="name_invalid">*Name must contain only alphanumeric characters</span>
+                        <span class="show" *ngIf="surname_invalid">*Surname must contain only alphanumeric characters</span>
+                    </div>
+                    <div class="row mt-3 form-group">
+                        <div class="col-md-12 form-group"><label class="labels">Mobile Number</label><input type="text" [formControlName]="'phone_number'" class="form-control" placeholder="enter phone number" value="{{userr.phone_number}}"></div>
+                        <span class="show" *ngIf="phone_invalid">*Phone number must be 10 digits</span>
+                        <div class="col-md-12 form-group"><label class="labels">Email</label><input type="text" class="form-control" [formControlName]="'email'" placeholder="enter email id" value="{{userr.email}}"  readonly="readonly"  data-validate = "Valid email is required: ex@abc.xyz"></div>
+                        <div class="col-md-12 form-group"><label class="labels">Number of bookings</label><input type="text" class="form-control" placeholder="nr of bookings" value="{{bookingsLength}}" readonly="readonly" ></div>
+                        <div class="col-md-12 form-group"><label class="labels">Role</label><input type="text" [formControlName]="'user_role'"class="form-control" placeholder="role" value="{{userr.user_role}}" readonly="readonly" ></div>
+                        <div class="col-md-12 form-group"><label class="labels">City</label><input type="text" [formControlName]="'city'" class="form-control" placeholder="city" value="{{userr.city}}"></div>
+                        
+                    </div>
+                    <div class="row mt-3 form-group">
+                        <div class="col-md-6 form-group"><label class="labels">Country</label><input type="text" [formControlName]="'country'" class="form-control" placeholder="country" value="{{userr.country}}"></div>
+                        <div class="col-md-6 form-group"><label class="labels">State/Region</label><input type="text" [formControlName]="'state'" class="form-control" value="{{userr.state}}" placeholder="state"></div>
+                    </div>
+                    <span class="show" *ngIf="show">*Please fill in country,state,city to change address</span>
+                    <span class="show" *ngIf="invalid_location">*Country,state,city  must contain only alphanumeric characters</span>
+                    <span class="updated" *ngIf="updated">Updated</span>
+                    <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="submit">Save Profile</button></div>
+                </form>
+        
+                <ngb-alert class="text-center" *ngIf="alert" [type]='success' (closed)="close(alert)">Changes have been successfully saved!</ngb-alert>
+          
+            </div>
+        </div>
+    </div>
+</div>
+
+            
+        </div>
+    </div>
+</body>

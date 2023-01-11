@@ -1,0 +1,31 @@
+
+
+.card{
+    max-width: 500px;
+    display:block;
+    max-height: 700px;
+    justify-content: center;
+    margin:0 auto;
+    position:relative;
+    float: none; 
+    margin-bottom: 10px; 
+
+}
+
+body{
+    padding: 200px;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.tab-content{overflow:auto;}
+
+
+.invalid_email{
+    color: red;
+}
+
+.show{
+    color: red;
+}
