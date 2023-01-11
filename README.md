@@ -5,4 +5,12 @@ My final project consists in the development of a web application that offers th
 * Creation of an online recommendation system**
 * Implementation of the system with the "k nearest neighbors" algorithm**
 * Finding relevant suggestions based on other people's recommendations to meet the needs of the current user**
+
+## Home page
 ![Home](https://i.ibb.co/YLPfVw0/home.png)
+## Holiday page
+![Holiday](https://i.ibb.co/chpfDdY/single-holiday.png)
+## Recommendations
+![Recommendations](https://i.ibb.co/xXZwn9T/recommendations.png)
+## Filters 
+![Filters](https://i.ibb.co/Y8PSfds/filters.png)
